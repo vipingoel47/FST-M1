@@ -10,7 +10,7 @@ public class Activity2 {
         WebDriver driver = new FirefoxDriver();
 
         //Open the browser
-        driver.get("	");
+        driver.get("https://www.training-support.net");
         
         //print title
         System.out.println(driver.getTitle());
