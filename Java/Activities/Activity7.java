@@ -1,7 +1,6 @@
 package fst_b17;
 
 public class Activity7 {
-
 	public static void main(String args[]) {
 	    MountainBike mb = new MountainBike(3, 0, 25);
 	    System.out.println(mb.bicycleDesc());
