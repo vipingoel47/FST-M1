@@ -34,26 +34,27 @@ public class Activity6 {
         // Instantiate Appium Driver
         URL appServer = new URL("http://0.0.0.0:4723/wd/hub");
         driver = new AndroidDriver<MobileElement>(appServer, caps);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 25);
 
         driver.get("https://www.training-support.net/selenium/lazy-loading");
     }
 
     @Test
     public void imageScrollTest() {
+    	String UIScrollable = "UiScrollable(UiSelector().scrollable(true))";
+    	
         // wait for page to load
-        MobileElement pageTitle = driver.findElementByClassName("android.widget.TextView");
-        wait.until(ExpectedConditions.textToBePresentInElement(pageTitle, "Lazy Loading"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MobileBy.xpath("//*[@text='Lazy Loading']")));
 
         // Count the number of images shown on the screen
         List<MobileElement> numberOfImages = driver.findElementsByXPath("//android.view.View/android.view.View/android.widget.Image");
         System.out.println("Number of image shown currently: " + numberOfImages.size());
         
         // Assertion before scrolling
-        Assert.assertEquals(numberOfImages.size(), 4);
+        Assert.assertEquals(numberOfImages.size(), 2);
         
         // Scroll to Helen's post
-        driver.findElement(MobileBy.AndroidUIAutomator("UiScrollable(UiSelector()).scrollTextIntoView(\"helen\")"));
+        driver.findElement(MobileBy.AndroidUIAutomator(UIScrollable + ".scrollTextIntoView(\"helen\")"));
         
         // Find the number of images shown after scrolling
         numberOfImages = driver.findElementsByXPath("//android.view.View/android.view.View/android.widget.Image");
