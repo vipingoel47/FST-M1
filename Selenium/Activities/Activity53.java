@@ -19,13 +19,13 @@ public class Activity53 {
         
         //Find text field and its status
         WebElement textField = driver.findElement(By.xpath("//input[@id='input-text']"));
-        System.out.println("Text field enabled?" + textField.isEnabled());
+        System.out.println("Text field enabled? " + textField.isEnabled());
         
         //Enable text field
         driver.findElement(By.xpath("//button[@id='toggleInput']")).click();
       
         //Find text field status again
-        System.out.println("Text field enabled?" + textField.isEnabled());
+        System.out.println("Text field enabled? " + textField.isEnabled());
         
         //Close the browser
         driver.quit();
